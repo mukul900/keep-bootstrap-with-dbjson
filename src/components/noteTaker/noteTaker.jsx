@@ -31,8 +31,8 @@ class NoteTaker extends React.Component {
 
     handleOnClick(event) {
         event.preventDefault()
-        this.notes.title= this.state.noteTitle;
-        this.notes.desc= this.state.noteDesc;
+        this.notes.noteTitle= this.state.noteTitle;
+        this.notes.noteDesc= this.state.noteDesc;
         this.props.saveNotes(this.notes);
         this.setState({
             noteTitle:"",

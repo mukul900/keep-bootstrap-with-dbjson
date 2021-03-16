@@ -1,7 +1,7 @@
 export default class Note{
-    constructor(id,title,desc){
+    constructor(id,NoteTitle,NoteDesc){
         this.id=id;
-        this.title=title;
-        this.desc=desc;
+        this.NoteTitle=NoteTitle;
+        this.NoteDesc=NoteDesc;
     }
 }

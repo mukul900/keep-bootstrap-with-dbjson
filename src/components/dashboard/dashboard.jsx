@@ -2,8 +2,8 @@ import React from 'react';
 import NoteTaker from '../noteTaker/noteTaker'
 import NoteViewer from '../noteViewer/noteViewer';
 
-// import { addNotes, getAllNotes } from '../../services/noteService'
-import NotesService from  '../../services/noteService'
+ import { addNotes, getAllNotes } from '../../services/noteService'
+//import NotesService from  '../../services/noteService'
 
 
 class Dashboard extends React.Component {
@@ -12,12 +12,12 @@ class Dashboard extends React.Component {
         this.state = {
             notesList: []
         }
-        this.ntsService= new NotesService();
         this.saveNotes = this.saveNotes.bind(this);
       this.getAllNotes= this.getAllNotes.bind(this);
+      console.log(getAllNotes())
     }
     componentDidMount(){
-       this.ntsService.getAllNotes()
+       this.getAllNotes()
     }
 
     componentDidUpdate(){
@@ -37,16 +37,20 @@ class Dashboard extends React.Component {
         })
 
         // Store Values in db.json
-        //addNotes(data);
+        addNotes(data);
+        // getAllNotes()
         // this.NotesService.addNotes(data);
-        this.ntsService.getAllNotes(data);
+       // this.ntsService.getAllNotes(data);
        
     }
 
-    //getAllNotes(){
-        this.NotesService.getAllNotes()
-    //    this.notesList= getAllNotes();
-    tthis
+    getAllNotes(){
+        // this.NotesService.getAllNotes()
+    // this.notesList= getAllNotes();
+    // tthis
+    // this.setState({notesList:getAllNotes()})
+    // console.log('notelist hai ye'+this.notesList)
+    console.log(getAllNotes())
     getAllNotes().then(data=>{
         console.log(data);
         this.setState({
@@ -58,6 +62,7 @@ class Dashboard extends React.Component {
         return (
             <div className="justify-content-center">
                 <NoteTaker saveNotes={this.saveNotes}></NoteTaker>
+
                 <NoteViewer notes={this.state.notesList}></NoteViewer>
             </div>
         )
